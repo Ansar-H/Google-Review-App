@@ -1,0 +1,14 @@
+{
+  "businessone": {
+    "name": "Business One",
+    "placeId": "PLACEID_FOR_BUSINESS_ONE"
+  },
+  "businesstwo": {
+    "name": "Business Two",
+    "placeId": "PLACEID_FOR_BUSINESS_TWO"
+  },
+  "hussainwebdesigns": {
+    "name": "Hussain Web Designs",
+    "directUrl": "https://www.google.com/search?q=Hussain+Web+Designs&oq=hu&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIGCAAQRRg8MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MgYIBBBFGDwyBggFEEUYPDIGCAYQRRg9MgYIBxBFGDzSAQgxNDUxajBqMagCALACAA&sourceid=chrome&ie=UTF-8#lrd=0x227480b62d475d33:0x258a37a8d50f702e,3,,,,"
+  }
+}

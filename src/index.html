@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank and Rank - Get More Reviews</title>
+    <style>
+        .config-section {
+            z-index: 100; 
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <!-- Main Landing Page (shown when visiting the root domain) -->
@@ -142,11 +148,42 @@
         </div>
 
     </div>
-    
     <footer class="site-footer">
-            <p>Thank and Rank is a <a href="https://hussainwebdesigns.co.uk" class="footer-link">Hussain Web Designs</a> product.</p>
+        <p>Thank and Rank is a <a href="https://hussainwebdesigns.co.uk" target="_blank" class="footer-link">Hussain Web Designs</a> product.</p>
+        <a href="javascript:void(0);" onclick="showAdminPanel();" id="adminPanelBtn" class="admin-link">Admin</a>
     </footer>
 
     <div id="toast" class="toast"></div>
+
+    <script>
+      function showAdminPanel() {
+        console.log("Admin panel button clicked");
+        const configSection = document.getElementById('configSection');
+        if (configSection) {
+          // Force style with !important
+          configSection.setAttribute('style', 'display: block !important');
+          
+          // Make sure it's visible
+          configSection.style.opacity = '1';
+          configSection.style.visibility = 'visible';
+          
+          // Try to scroll to it
+          setTimeout(() => {
+            configSection.scrollIntoView({behavior:'smooth', block: 'start'});
+          }, 100);
+        }
+      }
+      
+      // Also add event listener to the Admin button in case onclick doesn't work
+      document.addEventListener('DOMContentLoaded', function() {
+        const adminBtn = document.querySelector('.admin-link');
+        if (adminBtn) {
+          adminBtn.addEventListener('click', showAdminPanel);
+          console.log("Added event listener to admin button");
+        } else {
+          console.log("Admin button not found");
+        }
+      });
+    </script>
 </body>
 </html>

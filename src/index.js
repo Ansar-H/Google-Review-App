@@ -6,11 +6,55 @@ const { initializeRouter } = require('./routes');
 // Initialize the router
 initializeRouter();
 
+function showAdminPanel() {
+  console.log("Admin panel button clicked");
+  const configSection = document.getElementById('configSection');
+  if (configSection) {
+    configSection.setAttribute('style', 'display: block !important');
+    configSection.style.opacity = '1';
+    configSection.style.visibility = 'visible';
+
+    setTimeout(() => {
+      configSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM loaded and ready');
   
   // Admin configuration
   const ADMIN_PASSWORD = "admin123"; // Change this to your secure password
+  
+  // Get shared elements at the top level that both landing and client app use
+  const configSection = document.getElementById('configSection');
+  const adminPanelBtn = document.getElementById('adminPanelBtn');
+  const adminBtn = document.querySelector('.admin-link');
+if (adminBtn) {
+  adminBtn.addEventListener('click', showAdminPanel);
+  console.log("Added event listener to admin button");
+}
+
+  
+  console.log("Admin panel button:", adminPanelBtn);
+  console.log("Config section:", configSection);
+  
+  if (adminPanelBtn) {
+    console.log("Adding click listener to admin button");
+    adminPanelBtn.addEventListener('click', function() {
+      console.log("Admin button clicked");
+      if (configSection) {
+        configSection.style.display = configSection.style.display === 'block' ? 'none' : 'block';
+        if (configSection.style.display === 'block') {
+          configSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        console.log("Config section display:", configSection.style.display);
+      } else {
+        console.log("Config section not found");
+      }
+    });
+  }
   
   // Determine if we're on the homepage or a client page
   const pathSegments = window.location.pathname.split('/');
@@ -47,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const qrModal = document.getElementById('qrModal');
     const closeModal = document.querySelector('.close');
     const qrCodeContainer = document.getElementById('qrCode');
-    const configSection = document.getElementById('configSection');
     const adminLogin = document.getElementById('adminLogin');
     const configForm = document.getElementById('configForm');
     const saveConfigBtn = document.getElementById('saveConfig');
