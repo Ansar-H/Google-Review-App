@@ -150,17 +150,41 @@ if (adminBtn) {
     // Try to extract business info from URL
     const businessPathFromUrl = getBusinessPathFromUrl();
     if (businessPathFromUrl !== 'business') {
+      // First set the shortPath in config
       config.shortPath = businessPathFromUrl;
-    }
-
-    // Load config from localStorage if available
-    if (localStorage.getItem('reviewAppConfig')) {
-      try {
-        config = JSON.parse(localStorage.getItem('reviewAppConfig'));
-        updateUIFromConfig();
-      } catch (e) {
-        console.error('Error loading config:', e);
-      }
+      
+      // Try to fetch the business data from our business.json file through an API call
+      fetch('/business.json')
+        .then(response => response.json())
+        .then(businessData => {
+          // If this business exists in our data
+          if (businessData[businessPathFromUrl]) {
+            const business = businessData[businessPathFromUrl];
+            
+            // Update our config with the business info
+            config.businessName = business.name || config.businessName;
+            
+            // Handle place ID or direct URL
+            if (business.placeId) {
+              config.placeId = business.placeId;
+              config.serviceBasedBusiness = false;
+            } 
+            
+            if (business.directUrl) {
+              config.alternativeReviewUrl = business.directUrl;
+              config.serviceBasedBusiness = true;
+            }
+            
+            // Update the UI with our new config
+            updateUIFromConfig();
+            
+            // Save to localStorage
+            localStorage.setItem('reviewAppConfig', JSON.stringify(config));
+          }
+        })
+        .catch(error => {
+          console.error('Error loading business data:', error);
+        });
     }
 
     // Show/hide alternative URL field based on checkbox
