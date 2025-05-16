@@ -6,6 +6,8 @@ const { initializeRouter } = require('./routes');
 // Initialize the router
 initializeRouter();
 
+console.log("QRCode library available:", typeof QRCode !== 'undefined');
+
 function showAdminPanel() {
   console.log("Admin panel button clicked");
   const configSection = document.getElementById('configSection');
@@ -276,6 +278,7 @@ if (adminBtn) {
       // Generate QR code for the review URL
       if (qrCodeContainer && reviewUrl && reviewUrl !== '#') {
         qrCodeContainer.innerHTML = '';
+        console.log("Attempting to generate QR code for URL:", reviewUrl);
         try {
           QRCode.toCanvas(qrCodeContainer, reviewUrl, {
             width: 200,
@@ -285,12 +288,22 @@ if (adminBtn) {
               light: '#ffffff'
             }
           }, function(error) {
-            if (error) console.error('Error generating QR code', error);
+            if (error) {
+              console.error('Error generating QR code:', error);
+              qrCodeContainer.textContent = 'Error: ' + error.message;
+            } else {
+              console.log("QR code generated successfully");
+            }
           });
         } catch (error) {
           console.error('Error generating QR code:', error);
-          qrCodeContainer.textContent = 'QR Code generation failed';
+          qrCodeContainer.textContent = 'QR Code generation failed: ' + error.message;
         }
+      } else {
+        console.warn("Cannot generate QR code:", {
+          qrCodeContainerExists: !!qrCodeContainer,
+          reviewUrl: reviewUrl
+        });
       }
       
       populateForm();
@@ -380,7 +393,11 @@ if (adminBtn) {
         
         if (canShowQR && qrModal) {
           qrModal.style.display = 'block';
-          console.log("QR modal shown");
+          console.log("QR modal shown, current reviewUrl:", 
+            config.serviceBasedBusiness ? config.alternativeReviewUrl : 
+            config.placeId ? `https://search.google.com/local/writereview?placeid=${config.placeId}` : '#');
+        } else {
+          console.error("Cannot show QR modal:", { canShowQR, qrModalExists: !!qrModal });
         }
       });
     }
