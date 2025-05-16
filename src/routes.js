@@ -57,8 +57,14 @@ function initializeRouter() {
             // Generate QR code for the review URL
             const qrCodeContainer = document.getElementById('qrCode');
             if (qrCodeContainer) {
+                qrCodeContainer.innerHTML = ''; // Clear previous content
+                
+                // Create a new canvas element
+                const canvas = document.createElement('canvas');
+                qrCodeContainer.appendChild(canvas);
+                
                 try {
-                    QRCode.toCanvas(qrCodeContainer, reviewUrl, {
+                    QRCode.toCanvas(canvas, reviewUrl, {
                         width: 200,
                         margin: 1,
                         color: {
@@ -68,6 +74,7 @@ function initializeRouter() {
                     });
                 } catch (error) {
                     console.error('Error generating QR code:', error);
+                    qrCodeContainer.innerHTML = 'QR Code generation failed: ' + error.message;
                 }
             }
         }

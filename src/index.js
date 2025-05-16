@@ -277,10 +277,14 @@ if (adminBtn) {
       
       // Generate QR code for the review URL
       if (qrCodeContainer && reviewUrl && reviewUrl !== '#') {
-        qrCodeContainer.innerHTML = '';
-        console.log("Attempting to generate QR code for URL:", reviewUrl);
+        qrCodeContainer.innerHTML = ''; // Clear previous content
+        
+        // Create a new canvas element
+        const canvas = document.createElement('canvas');
+        qrCodeContainer.appendChild(canvas);
+        
         try {
-          QRCode.toCanvas(qrCodeContainer, reviewUrl, {
+          QRCode.toCanvas(canvas, reviewUrl, { // Use the canvas directly
             width: 200,
             margin: 1,
             color: {
@@ -290,14 +294,12 @@ if (adminBtn) {
           }, function(error) {
             if (error) {
               console.error('Error generating QR code:', error);
-              qrCodeContainer.textContent = 'Error: ' + error.message;
-            } else {
-              console.log("QR code generated successfully");
+              qrCodeContainer.innerHTML = 'Error generating QR code: ' + error.message;
             }
           });
         } catch (error) {
           console.error('Error generating QR code:', error);
-          qrCodeContainer.textContent = 'QR Code generation failed: ' + error.message;
+          qrCodeContainer.innerHTML = 'QR Code generation failed: ' + error.message;
         }
       } else {
         console.warn("Cannot generate QR code:", {
