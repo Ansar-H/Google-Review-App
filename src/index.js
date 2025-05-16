@@ -262,7 +262,7 @@ if (adminBtn) {
       
       // Update button actions
       const encodedSubject = encodeURIComponent(config.emailSubject);
-      const messageWithLink = `${config.messageText}\n\n${reviewUrl}\n\nThank you for your support!`;
+      const messageWithLink = `${config.messageText}\n\n${reviewUrl}\n\n\nThank you for your support!`;
       const encodedMessage = encodeURIComponent(messageWithLink);
       
       if (sendTextBtn) {

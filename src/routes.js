@@ -40,7 +40,7 @@ function initializeRouter() {
             
             // Configure text button
             const messageText = `Thanks for choosing us! We'd appreciate if you could take a moment to leave us a review.`;
-            const messageWithLink = `${messageText}\n\n${reviewUrl}\n\nThank you for your support!`;
+            const messageWithLink = `${messageText}\n\n${reviewUrl}\n\n\nThank you for your support!`;
             const encodedMessage = encodeURIComponent(messageWithLink);
             const sendTextBtn = document.getElementById('sendTextBtn');
             if (sendTextBtn) {
