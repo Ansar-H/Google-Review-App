@@ -1,14 +1,10 @@
 {
-  "businessone": {
-    "name": "Business One",
-    "placeId": "PLACEID_FOR_BUSINESS_ONE"
-  },
-  "businesstwo": {
-    "name": "Business Two",
-    "placeId": "PLACEID_FOR_BUSINESS_TWO"
-  },
   "hussainwebdesigns": {
     "name": "Hussain Web Designs",
     "directUrl": "https://g.page/r/CS5wD9WoN4olEAI/review"
+  },
+  "StWerburghsFoodWine": {
+    "name": "St Werburghs Food & Wine",
+    "placeId": "ChIJWzdfNBSOcUgRiih81qlD43w"
   }
 }
