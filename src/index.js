@@ -262,21 +262,17 @@ if (adminBtn) {
       
       // Update button actions
       const encodedSubject = encodeURIComponent(config.emailSubject);
-
-      // For text messages - use multiple types of line breaks
-      const textMessageWithLink = `${config.messageText}\r\n\r\n${reviewUrl}\r\n\r\n\r\nThank you for your support!`;
-      const encodedTextMessage = encodeURIComponent(textMessageWithLink);
-
-      // For email - use HTML formatting
-      const emailBody = `${config.messageText}<br><br><a href="${reviewUrl}">${reviewUrl}</a><br><br>Thank you for your support!`;
-      const encodedEmailBody = encodeURIComponent(emailBody);
+      const messageWithLink = `${config.messageText}\n\n${reviewUrl}\n\nThank you for your support!`;
+      const encodedMessage = encodeURIComponent(messageWithLink);
 
       if (sendTextBtn) {
-        sendTextBtn.href = `sms:?&body=${encodedTextMessage}`;
+        sendTextBtn.href = `sms:?&body=${encodedMessage}`;
+        console.log("SMS link set to:", sendTextBtn.href);
       }
       
       if (sendEmailBtn) {
-        sendEmailBtn.href = `mailto:?subject=${encodedSubject}&html=${encodedEmailBody}`;
+        sendEmailBtn.href = `mailto:?subject=${encodedSubject}&body=${encodedMessage}`;
+        console.log("Email link set to:", sendEmailBtn.href);
       }
       
       // Generate QR code for the review URL
