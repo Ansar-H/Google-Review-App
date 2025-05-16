@@ -40,18 +40,25 @@ function initializeRouter() {
             
             // Configure text button
             const messageText = `Thanks for choosing us! We'd appreciate if you could take a moment to leave us a review.`;
-            const messageWithLink = `${messageText}\n\n${reviewUrl}\n\n\nThank you for your support!`;
-            const encodedMessage = encodeURIComponent(messageWithLink);
+            
+            // For text messages - use multiple types of line breaks
+            const textMessageWithLink = `${messageText}\r\n\r\n${reviewUrl}\r\n\r\n\r\nThank you for your support!`;
+            const encodedTextMessage = encodeURIComponent(textMessageWithLink);
+            
+            // For email - use HTML formatting
+            const emailBody = `${messageText}<br><br><a href="${reviewUrl}">${reviewUrl}</a><br><br>Thank you for your support!`;
+            const encodedEmailBody = encodeURIComponent(emailBody);
+            
             const sendTextBtn = document.getElementById('sendTextBtn');
             if (sendTextBtn) {
-                sendTextBtn.href = `sms:?&body=${encodedMessage}`;
+                sendTextBtn.href = `sms:?&body=${encodedTextMessage}`;
             }
             
-            // Configure email button
+            // Email
             const encodedSubject = encodeURIComponent(`We'd love your feedback on ${business.name}!`);
             const sendEmailBtn = document.getElementById('sendEmailBtn');
             if (sendEmailBtn) {
-                sendEmailBtn.href = `mailto:?subject=${encodedSubject}&body=${encodedMessage}`;
+                sendEmailBtn.href = `mailto:?subject=${encodedSubject}&html=${encodedEmailBody}`;
             }
             
             // Generate QR code for the review URL
