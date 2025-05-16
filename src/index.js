@@ -226,7 +226,7 @@ if (adminBtn) {
         reviewUrl = '#';
       }
       
-      // Construct short link
+      // Construct short link (just for display purposes)
       const shortLink = `${window.location.protocol}//${config.shortDomain}/${config.shortPath}`;
       
       if (shortLinkDisplay) {
@@ -236,7 +236,7 @@ if (adminBtn) {
       
       // Update button actions
       const encodedSubject = encodeURIComponent(config.emailSubject);
-      const messageWithLink = `${config.messageText}\n\n${shortLink}`;
+      const messageWithLink = `${config.messageText}\n\n${reviewUrl}`;
       const encodedMessage = encodeURIComponent(messageWithLink);
       
       if (sendTextBtn) {
