@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank and Rank - Get More Reviews</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo" id="appLogo"></div>
+            <h1 class="app-title">Thank and Rank</h1>
+            <p class="business-name" id="businessNameDisplay">Your Business Name</p>
+            <div class="stars">★★★★★</div>
+        </div>
+
+        <a href="#" class="btn btn-primary" id="sendTextBtn">Send By Text</a>
+        <a href="#" class="btn btn-secondary" id="sendEmailBtn">Send By Email</a>
+        <button class="btn btn-accent" id="showQRBtn">Scan QR Code</button>
+
+        <div class="short-link">
+            <p>Share this link:</p>
+            <p><a href="#" class="link" id="shortLinkDisplay">https://yourshortlink.com/business</a></p>
+            <button class="copy-btn" id="copyLinkBtn">Copy</button>
+        </div>
+
+        <!-- QR Code Modal -->
+        <div id="qrModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Scan to Leave a Review</h2>
+                <div id="qrCode"></div>
+                <p>Scan with your phone camera</p>
+            </div>
+        </div>
+
+        <!-- Hidden Admin Configuration Section -->
+        <div class="config-section" id="configSection" style="display: none;">
+            <h2>Admin Configuration</h2>
+            <div id="adminLogin" class="admin-login-form">
+                <div class="form-group">
+                    <label for="adminPassword">Admin Password:</label>
+                    <input type="password" id="adminPassword" placeholder="Enter admin password">
+                </div>
+                <button type="button" class="btn" id="loginBtn">Login</button>
+            </div>
+          
+            <div id="configForm" style="display: none;">
+                <div class="form-group">
+                    <label for="businessName">Business Name:</label>
+                    <input type="text" id="businessName" placeholder="Your Business Name">
+                </div>
+                <div class="form-group">
+                    <label for="placeId">Google Place ID:</label>
+                    <input type="text" id="placeId" placeholder="ChIJxxx_xxx">
+                    <p class="help-text">Find Place ID at 
+                        <a href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" 
+                        target="_blank">Google's Place ID Finder</a>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="shortPath">Short Link Path:</label>
+                    <input type="text" id="shortPath" placeholder="businessname">
+                </div>
+                <div class="form-group">
+                    <label for="emailSubject">Email Subject:</label>
+                    <input type="text" id="emailSubject" placeholder="We'd love your feedback!">
+                </div>
+                <div class="form-group">
+                    <label for="messageText">Message Text:</label>
+                    <textarea id="messageText" placeholder="Thanks for choosing us! We'd appreciate if you could take a moment to leave us a review."></textarea>
+                </div>
+                <button type="button" class="btn" id="saveConfig">Save Configuration</button>
+                <button type="button" class="btn" id="hideConfig">Hide Configuration</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+</body>
+</html>
