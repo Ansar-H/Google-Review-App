@@ -154,7 +154,7 @@ if (adminBtn) {
       config.shortPath = businessPathFromUrl;
       
       // Try to fetch the business data from our business.json file through an API call
-      fetch('/business.json')
+      fetch('./business.json')
         .then(response => response.json())
         .then(businessData => {
           // If this business exists in our data
