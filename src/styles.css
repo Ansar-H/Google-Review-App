@@ -1,10 +1,11 @@
 :root {
-    --primary-color: #4285F4;
+    --primary-color: #4365af;
     --secondary-color: #34A853;
     --accent-color: #FBBC05;
     --dark-color: #333;
     --light-color: #f8f9fa;
-    --red-color: #EA4335;
+    --footer-color: #1e2b3a;
+    --bg-color: #f5f5f5;
 }
 
 * {
@@ -15,13 +16,155 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: var(--bg-color);
     color: var(--dark-color);
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Landing Page Styles */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f1ea;
+}
+
+.landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.landing-content {
+    flex: 1;
+    max-width: 600px;
+    padding-right: 40px;
+}
+
+.landing-content h1 {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.landing-content h2 {
+    font-size: 32px;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.intro-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.feature-list {
+    margin-top: 40px;
+}
+
+.feature {
+    margin-bottom: 30px;
+}
+
+.feature h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #555;
+}
+
+.phone-preview {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.phone-frame {
+    width: 280px;
+    height: 580px;
+    background-color: #000;
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.app-preview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.app-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.logo-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.app-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.app-subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.preview-btn {
+    width: 100%;
+    padding: 15px 10px;
+    margin: 10px 0;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Client App Styles */
 .container {
-    max-width: 360px;
+    max-width: 440px;
     margin: 0 auto;
     padding: 20px;
     background-color: white;
@@ -32,6 +175,7 @@ body {
 .logo-container {
     text-align: center;
     margin-bottom: 30px;
+    padding-top: 20px;
 }
 
 .logo {
@@ -48,15 +192,24 @@ body {
 }
 
 .business-name {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 .btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    padding: 14px;
-    margin: 15px 0;
+    padding: 16px;
     border: none;
     border-radius: 8px;
     font-size: 16px;
@@ -67,31 +220,36 @@ body {
     transition: all 0.3s ease;
 }
 
+.btn-icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
 .btn-primary {
     background-color: var(--primary-color);
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #3367d6;
+    background-color: #3857a0;
 }
 
 .btn-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: white;
 }
 
 .btn-secondary:hover {
-    background-color: #2d9047;
+    background-color: #3857a0;
 }
 
 .btn-accent {
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
     color: white;
 }
 
 .btn-accent:hover {
-    background-color: #e2a904;
+    background-color: #3857a0;
 }
 
 .modal {
@@ -166,7 +324,7 @@ body {
 
 .stars {
     text-align: center;
-    margin: 20px 0;
+    margin: 15px 0;
     color: #FBBC05;
     font-size: 30px;
 }
@@ -211,18 +369,27 @@ body {
     margin-top: 5px;
 }
 
-#saveConfig {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-#loginBtn {
+#saveConfig, #loginBtn {
     background-color: var(--primary-color);
     color: white;
 }
 
 .admin-login-form {
     margin-bottom: 20px;
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: var(--footer-color);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: underline;
 }
 
 /* Toast notification style */
@@ -255,4 +422,30 @@ body {
 @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .landing-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .landing-content {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .phone-preview {
+        margin-bottom: 40px;
+        order: 1;
+    }
+    
+    .landing-content h1 {
+        font-size: 36px;
+    }
+    
+    .landing-content h2 {
+        font-size: 24px;
+    }
 }

@@ -6,7 +6,55 @@
     <title>Thank and Rank - Get More Reviews</title>
 </head>
 <body>
-    <div class="container">
+    <!-- Main Landing Page (shown when visiting the root domain) -->
+    <div class="landing-page" id="landingPage">
+        <div class="landing-container">
+            <div class="landing-content">
+                <h1>Thank and Rank</h1>
+                <h2>Helping Local Businesses<br>Get More 5-Star Reviews</h2>
+                
+                <p class="intro-text">It's never been easier to get more customer reviews.</p>
+                
+                <div class="feature-list">
+                    <div class="feature">
+                        <h3>Send By Text</h3>
+                        <p>A prefilled message with your review link is ready to send.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>Send By Email</h3>
+                        <p>An email is ready to go with your review link. All you need to do is type in your customer's email address.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>QR Code</h3>
+                        <p>If you're in-person with your customer, click your Scan QR Code button and a QR code pops up for your customer to scan. They'll go straight to Google to leave you a review.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="phone-preview">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="app-preview">
+                            <div class="app-logo">
+                                <div class="logo-inner" id="appLogoPreview"></div>
+                            </div>
+                            <h3 class="app-title">Thank and Rank</h3>
+                            <p class="app-subtitle">Ask For A Review</p>
+                            
+                            <button class="preview-btn">Send By Text</button>
+                            <button class="preview-btn">Send By Email</button>
+                            <button class="preview-btn">Scan QR Code</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client App (shown when visiting a business-specific URL) -->
+    <div class="container" id="clientApp" style="display: none;">
         <div class="logo-container">
             <div class="logo" id="appLogo"></div>
             <h1 class="app-title">Thank and Rank</h1>
@@ -14,9 +62,17 @@
             <div class="stars">★★★★★</div>
         </div>
 
-        <a href="#" class="btn btn-primary" id="sendTextBtn">Send By Text</a>
-        <a href="#" class="btn btn-secondary" id="sendEmailBtn">Send By Email</a>
-        <button class="btn btn-accent" id="showQRBtn">Scan QR Code</button>
+        <div class="button-container">
+            <a href="#" class="btn btn-primary" id="sendTextBtn">
+                <span class="btn-icon">💬</span> Send By Text
+            </a>
+            <a href="#" class="btn btn-secondary" id="sendEmailBtn">
+                <span class="btn-icon">✉️</span> Send By Email
+            </a>
+            <button class="btn btn-accent" id="showQRBtn">
+                <span class="btn-icon">📱</span> Scan QR Code
+            </button>
+        </div>
 
         <div class="short-link">
             <p>Share this link:</p>
@@ -44,7 +100,7 @@
                 </div>
                 <button type="button" class="btn" id="loginBtn">Login</button>
             </div>
-          
+        
             <div id="configForm" style="display: none;">
                 <div class="form-group">
                     <label for="businessName">Business Name:</label>
@@ -57,6 +113,16 @@
                         <a href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" 
                         target="_blank">Google's Place ID Finder</a>
                     </p>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="serviceBasedCheckbox"> This is a service-based business (no physical address)
+                    </label>
+                </div>
+                <div class="form-group" id="alternativeReviewUrlGroup" style="display: none;">
+                    <label for="alternativeReviewUrl">Alternative Review URL:</label>
+                    <input type="text" id="alternativeReviewUrl" placeholder="https://trustpilot.com/your-business">
+                    <p class="help-text">For businesses without a Google Place ID, provide another URL where customers can leave reviews (e.g., Trustpilot, your website, etc.)</p>
                 </div>
                 <div class="form-group">
                     <label for="shortPath">Short Link Path:</label>
@@ -74,8 +140,11 @@
                 <button type="button" class="btn" id="hideConfig">Hide Configuration</button>
             </div>
         </div>
-    </div>
 
+    <footer class="site-footer">
+        <p>Thank and Rank is a <a href="https://hussainwebdesigns.co.uk" class="footer-link">Hussain Web Designs</a> product.</p>
+    </footer>
+    
     <div id="toast" class="toast"></div>
 </body>
 </html>
