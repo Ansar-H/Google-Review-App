@@ -45,7 +45,7 @@ function initializeRouter() {
             
             // Configure text button
             const messageText = `Thanks for choosing us! We'd appreciate if you could take a moment to leave us a review.`;
-            const shortReviewLink = `${window.location.protocol}//${window.location.host}/${path}`;
+            const shortReviewLink = `${window.location.protocol}//${window.location.host}/${businessPath}`;
             const messageWithLink = `${messageText}\n\n${shortReviewLink}\n\nThank you for your support!`;
             const encodedMessage = encodeURIComponent(messageWithLink);
             const sendTextBtn = document.getElementById('sendTextBtn');
