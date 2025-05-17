@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build && cp src/business.json dist/"
+  command = "npm run build && cp src/business.json dist/ && cp -r src/favicons dist/"
 
 [[redirects]]
   from = "/hussainwebdesigns"
