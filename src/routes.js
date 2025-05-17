@@ -4,11 +4,16 @@ const businesses = require('./business.json');
 function initializeRouter() {
     // Get the path from the URL
     const path = window.location.pathname.substr(1); // Remove leading slash
+    const isAppInterface = path.endsWith('app');
+    const businessPath = isAppInterface ? path.slice(0, -3) : path;
 
-    if (path && path !== 'index.html') {
-        if (businesses[path]) {
+    if (businessPath && businesses[businessPath]) {
+        if (isAppInterface) {
+            // Show the app interface
+            // ...
+        } else {
             // Found a business match
-            const business = businesses[path];
+            const business = businesses[businessPath];
             
             // Update page for this specific business
             const landingPage = document.getElementById('landingPage');
@@ -31,7 +36,7 @@ function initializeRouter() {
             }
             
             // Set short link
-            const shortLink = `${window.location.protocol}//${window.location.host}/${path}`;
+            const shortLink = `${window.location.protocol}//${window.location.host}/${businessPath}`;
             const shortLinkDisplay = document.getElementById('shortLinkDisplay');
             if (shortLinkDisplay) {
                 shortLinkDisplay.textContent = shortLink;
