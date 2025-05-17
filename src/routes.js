@@ -11,41 +11,10 @@ function initializeRouter() {
         if (isAppInterface) {
             // Show the app interface
             // ...
-        } else {
-            // Found a business match
-            const business = businesses[businessPath];
-            
-            // Update page for this specific business
-            const landingPage = document.getElementById('landingPage');
-            const clientApp = document.getElementById('clientApp');
-            
-            if (landingPage) landingPage.style.display = 'none';
-            if (clientApp) clientApp.style.display = 'block';
-            
-            const businessNameDisplay = document.getElementById('businessNameDisplay');
-            if (businessNameDisplay) businessNameDisplay.textContent = business.name;
-            
-            // Set Google review URL - either using placeId or directUrl
-            let reviewUrl;
-            if (business.directUrl) {
-                reviewUrl = business.directUrl;
-            } else if (business.placeId) {
-                reviewUrl = `https://search.google.com/local/writereview?placeid=${business.placeId}`;
-            } else {
-                reviewUrl = '#'; // Fallback
-            }
-            
-            // Set short link
-            const shortLink = `${window.location.protocol}//${window.location.host}/${businessPath}`;
-            const shortLinkDisplay = document.getElementById('shortLinkDisplay');
-            if (shortLinkDisplay) {
-                shortLinkDisplay.textContent = shortLink;
-                shortLinkDisplay.href = reviewUrl;
-            }
-            
-            // Configure text button
-            const messageText = `Thanks for choosing us! We'd appreciate if you could take a moment to leave us a review.`;
+
+            // Set short link (for SMS/email)
             const shortReviewLink = `${window.location.protocol}//${window.location.host}/${businessPath}`;
+            const messageText = `Thanks for choosing us! We'd appreciate if you could take a moment to leave us a review.`;
             const messageWithLink = `${messageText}\n\n${shortReviewLink}\n\nThank you for your support!`;
             const encodedMessage = encodeURIComponent(messageWithLink);
             const sendTextBtn = document.getElementById('sendTextBtn');
@@ -54,7 +23,7 @@ function initializeRouter() {
             }
             
             // Configure email button
-            const encodedSubject = encodeURIComponent(`We'd love your feedback on ${business.name}!`);
+            const encodedSubject = encodeURIComponent(`We'd love your feedback on ${businesses[businessPath].name}!`);
             const sendEmailBtn = document.getElementById('sendEmailBtn');
             if (sendEmailBtn) {
                 sendEmailBtn.href = `mailto:?subject=${encodedSubject}&body=${encodedMessage}`;
@@ -70,7 +39,7 @@ function initializeRouter() {
                 qrCodeContainer.appendChild(canvas);
                 
                 try {
-                    QRCode.toCanvas(canvas, reviewUrl, {
+                    QRCode.toCanvas(canvas, businesses[businessPath].directUrl || businesses[businessPath].placeId ? `https://search.google.com/local/writereview?placeid=${businesses[businessPath].placeId}` : '#', {
                         width: 200,
                         margin: 1,
                         color: {
@@ -83,6 +52,9 @@ function initializeRouter() {
                     qrCodeContainer.innerHTML = 'QR Code generation failed: ' + error.message;
                 }
             }
+        } else {
+            // This is the short link, which should redirect (handled by __redirects)
+            // No app interface here!
         }
     }
 }
