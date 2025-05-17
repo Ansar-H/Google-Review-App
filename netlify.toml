@@ -3,6 +3,18 @@
   command = "npm run build && cp src/business.json dist/"
 
 [[redirects]]
+  from = "/hussainwebdesigns"
+  to = "https://g.page/r/CS5wD9WoN4olEAI/review"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/stwerburghsfoodwine"
+  to = "https://search.google.com/local/writereview?placeid=ChIJWzdfNBSOcUgRiih81qlD43w"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
