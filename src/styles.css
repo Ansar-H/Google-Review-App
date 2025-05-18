@@ -501,6 +501,8 @@ body {
 
     .container .logo {
         margin-bottom: 70px;
+        margin-top: 50px;
+        left: -2px;
     }
     
     .container .business-name {
