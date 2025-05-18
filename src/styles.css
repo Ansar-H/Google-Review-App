@@ -182,12 +182,20 @@ body {
     margin-bottom: 50px;
     padding-top: 30px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
     width: 150px;
     height: 150px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .business-name {
@@ -483,9 +491,12 @@ body {
 }
 
 .logo-img {
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     object-fit: contain;
     display: block;
-    margin: 0 auto 20px auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 0;
 }
