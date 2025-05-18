@@ -121,6 +121,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 30px 20px;
+    padding-top: 40px;
 }
 
 .app-logo {
@@ -143,10 +144,11 @@ body {
 }
 
 .app-subtitle {
+    margin-top: 72px;
+    text-align: center;
     font-size: 18px;
     color: #555;
     margin-bottom: 40px;
-    text-align: center;
 }
 
 .preview-btn {
