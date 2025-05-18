@@ -481,3 +481,11 @@ body {
 .admin-link {
   display: none;
 }
+
+.logo-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 20px auto;
+}
