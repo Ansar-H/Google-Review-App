@@ -489,11 +489,35 @@ body {
     }
     
     .logo-img {
-        width: 160px;
-        height: 160px;
-        max-width: 90vw;
+        width: 180px;
+        height: 180px;
         margin-bottom: 36px;
         left: -15px;
+    }
+    
+    .container .logo-container {
+        margin-bottom: 32px;
+    }
+
+    .container .logo {
+        margin-bottom: 70px;
+    }
+    
+    .container .business-name {
+        font-size: 22px;
+        margin-top: 16px;
+    }
+    
+    .container .stars {
+        margin-top: 16px;
+    }
+    
+    .container .button-container {
+        margin-top: 24px;
+    }
+    
+    .container .short-link {
+        margin-top: 24px;
     }
 }
 
@@ -510,5 +534,5 @@ body {
     display: block;
     margin: 0 auto 48px auto;
     position: relative;
-    left: -50px;
+    left: -48px;
 }
