@@ -263,7 +263,7 @@ if (adminBtn) {
       // Update button actions
       const encodedSubject = encodeURIComponent(config.emailSubject);
       const brandedShortLink = `${window.location.protocol}//${window.location.host}/${config.shortPath}`;
-      const messageWithLink = `${config.messageText}\n\n${brandedShortLink}\n\nThank you for your support!`;
+      const messageWithLink = `${config.messageText}\n\n${brandedShortLink}\n\nThank you for your support!`.replace(/\n/g, '\r\n');
       const encodedMessage = encodeURIComponent(messageWithLink);
 
       if (sendTextBtn) {
