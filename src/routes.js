@@ -12,10 +12,10 @@ function initializeRouter() {
             // Show the app interface
             // ...
 
-            // Set app interface link (for SMS/email)
-            const appInterfaceLink = `${window.location.protocol}//${window.location.host}/${businessPath}app`;
+            // Set branded short link (for SMS/email)
+            const brandedShortLink = `${window.location.protocol}//${window.location.host}/${businessPath}`;
             const messageText = `Thanks for choosing us! We'd appreciate if you could take a moment to leave us a review.`;
-            const messageWithLink = `${messageText}\n\n${appInterfaceLink}\n\nThank you for your support!`;
+            const messageWithLink = `${messageText}\n\n${brandedShortLink}\n\nThank you for your support!`;
             const encodedMessage = encodeURIComponent(messageWithLink);
             const sendTextBtn = document.getElementById('sendTextBtn');
             if (sendTextBtn) {
