@@ -27,6 +27,12 @@
   force = true
 
 [[redirects]]
+  from = "/andrewshairdressers"
+  to = "https://search.google.com/local/writereview?placeid=ChIJCUYDMm-OcUgRROtxThgEgAI"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
