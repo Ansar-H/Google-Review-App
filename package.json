@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --mode development",
-    "copy-assets": "copy src\\business.json dist\\business.json 2>nul & copy src\\favicons\\*.* dist\\favicons\\ 2>nul",
-    "build": "webpack --mode production && npm run copy-assets",
+    "build": "webpack --mode production",
     "start": "node server.js"
   },
   "dependencies": {
