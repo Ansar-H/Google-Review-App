@@ -314,8 +314,8 @@ body {
 }
 
 .logo {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto var(--spacing-4);
     display: flex;
     flex-direction: column;
@@ -817,14 +817,33 @@ body {
    ======================================== */
 
 .logo-img {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     max-width: 95vw;
-    max-height: 120px;
+    max-height: 150px;
     object-fit: contain;
     display: block;
-    margin: 0 auto var(--spacing-8) auto;
+    margin: var(--spacing-2) 0 0 var(--spacing-2);
     border-radius: var(--border-radius-md);
+}
+
+.app-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: var(--spacing-5);
+    margin-top: calc(var(--spacing-5) * -1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-logo img,
+.app-logo .logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: var(--spacing-1) 0 0 var(--spacing-1);
 }
 
 /* ========================================
@@ -943,78 +962,22 @@ body {
     }
     
     .logo {
-        width: 100px;
-        height: 100px;
+        width: 140px;
+        height: 140px;
     }
     
     .logo-img {
-        width: 100px;
-        height: 100px;
-        margin-bottom: var(--spacing-6);
-    }
-    
-    .app-title {
-        font-size: var(--font-size-xl);
-    }
-    
-    .business-name {
-        font-size: var(--font-size-2xl);
-    }
-    
-    .stars {
-        font-size: var(--font-size-2xl);
-    }
-    
-    .button-container {
-        gap: var(--spacing-2);
-        margin-bottom: var(--spacing-8);
-        width: 100%;
-        max-width: 100%;
-        align-self: center;
-    }
-    
-    .short-link {
-        padding: var(--spacing-4);
-        margin-bottom: var(--spacing-6);
-        width: 100%;
-        max-width: 100%;
-        align-self: center;
-    }
-    
-    .config-section {
-        padding: var(--spacing-6);
-        margin-top: var(--spacing-8);
-    }
-    
-    .config-section h2 {
-        font-size: var(--font-size-xl);
-    }
-    
-    .modal-content {
-        padding: var(--spacing-6);
-        margin: 20% auto;
-        width: 95%;
-    }
-    
-    #qrCode {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .app-preview {
-        padding: var(--spacing-6) var(--spacing-4);
-        padding-top: var(--spacing-8);
-        padding-bottom: var(--spacing-8);
+        width: 140px;
+        height: 140px;
+        max-height: 140px;
     }
     
     .app-logo {
-        width: 90px;
-        height: 90px;
         margin-bottom: var(--spacing-4);
     }
     
     .app-subtitle {
-        margin-top: var(--spacing-8);
+        margin-top: var(--spacing-6);
         margin-bottom: var(--spacing-5);
     }
     
@@ -1055,13 +1018,13 @@ body {
     }
     
     .app-logo {
-        width: 80px;
-        height: 80px;
-        margin-bottom: var(--spacing-3);
+        width: 100px;
+        height: 100px;
+        margin-top: var(--spacing-2);
     }
     
     .app-subtitle {
-        margin-top: var(--spacing-6);
+        margin-top: var(--spacing-5);
         margin-bottom: var(--spacing-4);
         font-size: var(--font-size-base);
     }
@@ -1080,5 +1043,9 @@ body {
     .btn-icon {
         font-size: var(--font-size-base);
         margin-right: var(--spacing-2);
+    }
+    
+    .logo-img {
+        margin: var(--spacing-2) 0 0 var(--spacing-2);
     }
 }

@@ -1,6 +1,5 @@
 import './styles.css';
 const QRCode = require('qrcode');
-const { createLogo } = require('./logo');
 const { initializeRouter } = require('./routes');
 
 // Initialize the router
@@ -66,17 +65,11 @@ if (adminBtn) {
   const landingPage = document.getElementById('landingPage');
   const clientApp = document.getElementById('clientApp');
   const appLogoPreview = document.getElementById('appLogoPreview');
-  
-  // Initialize logo for landing page if it exists
-  if (appLogoPreview) {
-    createLogo(appLogoPreview);
-  }
+  // Logo is now in HTML, no need to create it with JS
   
   // Initialize the app logo for client app
   const logoContainer = document.getElementById('appLogo');
-  if (logoContainer) {
-    createLogo(logoContainer);
-  }
+  // Logo is now in HTML, no need to create it with JS
 
   // Determine whether to show landing page or client app
   if (path && (path !== '' && path !== 'index.html')) {
