@@ -22,5 +22,10 @@
   "rjsurfacing": {
     "name": "RJ Surfacing",
     "placeId": "ChIJUUGbF_uPcUgRJvuDGMT-Gmk"
+  },
+  "plumbminister": {
+    "name": "Plumb Minister",
+    "placeId": "ChIJD6JKuh7BbWQRoGfwoanM4yk"
   }
+
 }
